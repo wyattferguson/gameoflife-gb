@@ -8,8 +8,7 @@ void clear_screen(){
     wait_vbl_done();
     DISPLAY_OFF;
 
-    UINT8 line = 0;
-    for (line = 0; line < GRID_HEIGHT + 1; line++) {
+    for (UINT8 line = 0; line < GRID_HEIGHT + 1; line++) {
         set_bkg_tiles(0,line,120,1,0);
         set_win_tiles(0,line,120,1,0);
     }

@@ -15,7 +15,7 @@ Board *pnext = &next_board;
  * 
  */
 void setup_board(Board board){
-    print_text(WIN_RIGHT, WIN_BOTTOM, "INFO GEN");
+    print_text(WIN_RIGHT, WIN_BOTTOM, "STAT GEN");
     for(row = 0;row<BOARD_HEIGHT;row++){
         for(col=0;col<BOARD_WIDTH;col++){
             board[row][col] = rand_num(0,1);
@@ -36,7 +36,7 @@ void display_board(Board board){
         }
     }
     print_number(WIN_LEFT,WIN_TOP,total_alive, "ALIVE ");
-    print_text(WIN_RIGHT, WIN_BOTTOM, "INFO DONE");
+    print_text(WIN_RIGHT, WIN_BOTTOM, "STAT DONE");
 }
 
 
@@ -49,7 +49,7 @@ void display_board(Board board){
 void update_board(Board board, Board next){
     UINT8 alive = 0;
     total_alive = 0;
-    print_text(WIN_RIGHT, WIN_BOTTOM, "INFO CALC");
+    print_text(WIN_RIGHT, WIN_BOTTOM, "STAT CALC");
     for(row = 0;row < BOARD_HEIGHT;row++){
         for(col=0;col < BOARD_WIDTH;col++){
             alive = live_neighbours(*pboard, row,col);

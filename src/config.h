@@ -8,9 +8,9 @@
 #define GRID_WIDTH 20
 
 // window states
-#define PLAY_WIN_X 7
+#define WIN_X 7
 #define PLAY_WIN_Y 128
-#define SPLASH_WIN_X 7
+#define TUT_WIN_Y 10
 #define SPLASH_WIN_Y 100
 #define WIN_TOP 0
 #define WIN_BOTTOM 1

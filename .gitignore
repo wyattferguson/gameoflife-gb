@@ -6,4 +6,6 @@
 *.o
 *.sym
 *.lst
+*.cdb
+*.adb
 .vscode

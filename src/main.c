@@ -15,13 +15,13 @@
 void setup(void);
 void show_title_screen(void);
 void show_play_screen(void);
-void show_game_over(void);
+void show_tutorial(void);
 
 
 enum game_states {
     TITLE,
     PLAYING,
-    GAMEOVER
+    TUTORIAL
 } state = TITLE;
 
 
@@ -50,22 +50,29 @@ void show_title_screen(){
     set_bkg_data(0,64, logo_data);    
     set_bkg_tiles(0,0,LOGO_WIDTH, LOGO_HEIGHT,logo_map);
     set_bkg_data(LOGO_SIZE, FONT_SIZE, font_tiles);
-    move_win(SPLASH_WIN_X, SPLASH_WIN_Y);
+    move_win(WIN_X, SPLASH_WIN_Y);
     print_text(5, 1, "PRESS START");
     delay(SCREEN_DELAY);
 }
+
+
 
 /**
  * @brief Display gameover screen
  * 
  */
-void show_game_over(){
-    state = GAMEOVER;
+void show_tutorial(){
+    state = TUTORIAL;
     clear_screen();
-    move_win(SPLASH_WIN_X, SPLASH_WIN_Y);
-    print_text(6, 0, "GAME OVER");
+    move_win(WIN_X, TUT_WIN_Y);
+    print_text(6, 0, "CONTROLS");
+    print_text(4, 2, "UP -    STEP");
+    print_text(4, 4, "DOWN -  RESET");
+    print_text(4, 6, "SELECT  AUTO");
+    print_text(5, 12, "PRESS START");
     delay(SCREEN_DELAY);
 }
+
 
 /**
  * @brief Display main gameplay screen
@@ -76,7 +83,7 @@ void show_play_screen(){
     set_bkg_data(0, BLOCK_TILES, block_tiles);
     state = PLAYING;
     steps = 0;
-    move_win(PLAY_WIN_X, PLAY_WIN_Y);
+    move_win(WIN_X, PLAY_WIN_Y);
     print_number(WIN_LEFT,WIN_BOTTOM,steps, "GEN ");
     print_text(WIN_RIGHT,WIN_TOP, "MODE STEP");
     setup_board(*pboard);
@@ -98,6 +105,12 @@ void main() {
         button_pressed = joypad();
         switch (state){
             case TITLE:
+                if(button_pressed & J_START) {
+                    show_tutorial();
+                }
+                break;
+
+            case TUTORIAL:
                 if(button_pressed & J_START) {
                     show_play_screen();
                 }
@@ -124,17 +137,10 @@ void main() {
                 }
                 // Reset board 
                 else if(button_pressed & J_DOWN){
-                    print_text(WIN_RIGHT, WIN_BOTTOM, "INFO RESET");
+                    print_text(WIN_RIGHT, WIN_BOTTOM, "STAT RESET");
                     show_play_screen();
                 }
                 break;
-
-            case GAMEOVER:
-                if(button_pressed & J_START) {
-                    show_title_screen();
-                }
-                break;
-                
         }
         wait_vbl_done();
     }
