@@ -52,7 +52,7 @@ void update_board(Board board, Board next){
     print_text(WIN_RIGHT, WIN_BOTTOM, "STAT CALC");
     for(row = 0;row < BOARD_HEIGHT;row++){
         for(col=0;col < BOARD_WIDTH;col++){
-            alive = live_neighbours(*pboard, row,col);
+            alive = alive_neighbours(*pboard, row,col);
             
 
             if (board[row][col] == 0 && alive == 3) {
@@ -89,7 +89,7 @@ void copy_boards(){
  * 
  * @return UINT8 
  */
-UINT8 live_neighbours(Board board, UINT8 x, UINT8 y){
+UINT8 alive_neighbours(Board board, UINT8 x, UINT8 y){
     UINT8 alive = 0;
     UINT8 a, b = 0;
     for(INT8 i = -1; i < 2; i++){
