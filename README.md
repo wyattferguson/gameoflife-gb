@@ -1,8 +1,14 @@
 # :joystick: Conway's Game of Life - Game Boy Edition
 
 This is a working version of Conway's Game of Life for the classic Game Boy. Simply fire up your favorite Game Boy emulator and load the `game.gb` file.
+<br><br>
+![t1](https://user-images.githubusercontent.com/503975/177911180-71f380c7-9d52-43a4-836a-510bcc4f770a.png)
+![t2](https://user-images.githubusercontent.com/503975/177911181-3fa1645a-5620-4c9e-91b6-8306f2b82cc1.png)
+![t3](https://user-images.githubusercontent.com/503975/177911183-39e210a9-1ff1-4da0-a9ae-4ea6e4b58d8d.png)
+![t4](https://user-images.githubusercontent.com/503975/177911184-7077aa2d-7454-4c49-8253-69efa6f596c9.png)
 
-<br>
+
+
 
 ## :rocket: Coding for the Game Boy
 
