@@ -54,7 +54,6 @@ void update_board(Board board, Board next){
         for(col=0;col < BOARD_WIDTH;col++){
             alive = alive_neighbours(*pboard, row,col);
             
-
             if (board[row][col] == 0 && alive == 3) {
 				next[row][col] = 1;
 			} else if (board[row][col] == 1 && (alive < 2 || alive > 3)) {
@@ -89,19 +88,48 @@ void copy_boards(){
  * 
  * @return UINT8 
  */
-UINT8 alive_neighbours(Board board, UINT8 x, UINT8 y){
+UINT8 alive_neighbours(Board board, UINT8 i, UINT8 j){
     UINT8 alive = 0;
-    UINT8 a, b = 0;
-    for(INT8 i = -1; i < 2; i++){
-        for(INT8 j = -1; j < 2; j++){
-
-            a = (x + i + BOARD_HEIGHT) % BOARD_HEIGHT;
-			b = (y + j + BOARD_WIDTH) % BOARD_WIDTH;
-
-            alive += board[a][b];
-        }
+    if (i-1 >= 0 && j-1 >= 0){
+        if (board[i-1][j-1] >= 1)
+        alive++;
     }
-    alive -= board[x][y];
+
+    if (i-1 >= 0){
+        if(board[i-1][j] >= 1)
+        alive++;
+    }
+
+    if (i-1 >= 0 && j+1 < BOARD_WIDTH){
+        if(board[i-1][j+1] >= 1)
+        alive++;
+    }
+
+    if (j-1 >= 0){
+        if(board[i][j-1] >= 1)
+        alive++;
+    }
+
+    if (j+1 < BOARD_WIDTH){
+        if(board[i][j+1] >= 1)
+        alive++;
+    }
+
+    if (i+1 < BOARD_HEIGHT && j-1 >=0){
+        if(board[i+1][j-1] >= 1)
+        alive++;
+    }
+
+    if (i+1 < BOARD_HEIGHT){
+        if(board[i+1][j] >= 1)
+        alive++;
+    }
+
+    if (i+1 < BOARD_HEIGHT && j+1 < BOARD_WIDTH){
+        if(board[i+1][j+1] >= 1)
+        alive++;
+    }
+
     return alive;
 }
 

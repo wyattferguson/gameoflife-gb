@@ -51,7 +51,9 @@ void show_title_screen(){
     set_bkg_tiles(0,0,LOGO_WIDTH, LOGO_HEIGHT,logo_map);
     set_bkg_data(LOGO_SIZE, FONT_SIZE, font_tiles);
     move_win(WIN_X, SPLASH_WIN_Y);
-    print_text(5, 1, "PRESS START");
+    print_text(5, 2, "PRESS START");
+    print_text(5, 5, "CREATED BY");
+    print_text(3, 6, "WYATT FERGUSON");
     delay(SCREEN_DELAY);
 }
 

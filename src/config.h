@@ -11,7 +11,7 @@
 #define WIN_X 7
 #define PLAY_WIN_Y 128
 #define TUT_WIN_Y 10
-#define SPLASH_WIN_Y 100
+#define SPLASH_WIN_Y 80
 #define WIN_TOP 0
 #define WIN_BOTTOM 1
 #define WIN_RIGHT 10
