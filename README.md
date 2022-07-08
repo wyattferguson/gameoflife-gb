@@ -12,7 +12,7 @@ This is a working version of Conway's Game of Life for the classic Game Boy. Sim
 
 ## :rocket: Coding for the Game Boy
 
-For curious its built with GBDK 2020 and heres the [GBDK 2020 C Guidelines](https://gbdk-2020.github.io/gbdk-2020/docs/api/docs_coding_guidelines.html#docs_c_tutorials). So if your wondering why so many things are globals or alive_neighbours doesnt use loops, or why I avoid using mods its because the game boy hardware really doesnt like those things. I rewrote the alive_neighbours function and unrolled all the loops and removed and fancy math tricks that a normal CPU would be fine with and got like a 10x improvement in performance.
+For curious its built with GBDK 2020 and heres the [GBDK 2020 C Guidelines](https://gbdk-2020.github.io/gbdk-2020/docs/api/docs_coding_guidelines.html#docs_c_tutorials) this will walk you through some of the limitations and tricks to make C run effeciently on the Game Boy. So if your wondering why so many things are globals or alive_neighbours doesnt use loops, or why I avoid using mods and other math functions its because the game boy hardware really doesnt like those things.
 
 <br>
 
