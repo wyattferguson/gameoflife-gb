@@ -55,12 +55,12 @@ void update_board(Board board, Board next){
             alive = alive_neighbours(*pboard, row,col);
             
             if (board[row][col] == 0 && alive == 3) {
-				next[row][col] = 1;
-			} else if (board[row][col] == 1 && (alive < 2 || alive > 3)) {
-				next[row][col] = 0;
-			} else {
-				next[row][col] = board[row][col];
-			}
+                next[row][col] = 1;
+            } else if (board[row][col] == 1 && (alive < 2 || alive > 3)) {
+                next[row][col] = 0;
+            } else {
+                next[row][col] = board[row][col];
+            }
 
             total_alive += next[row][col];
         }
