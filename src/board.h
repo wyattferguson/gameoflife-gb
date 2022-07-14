@@ -4,7 +4,6 @@
 #include <string.h>
 #include "config.h"
 #include "utils.h"
-#include "screen.h"
 
 typedef UINT8 Board[BOARD_HEIGHT][BOARD_WIDTH];
 

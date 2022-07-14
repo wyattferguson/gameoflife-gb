@@ -4,7 +4,6 @@
 
 #include "config.h"
 #include "board.c"
-#include "screen.c"
 #include "utils.c"
 
 #include "sprites/font-tiles.c"
