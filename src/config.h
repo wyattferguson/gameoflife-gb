@@ -31,8 +31,3 @@
 #define LOGO_HEIGHT 10
 #define LOGO_WIDTH 20
 
-// font settings
-#define FONT_SIZE 37
-#define FONT_CHAR_START 11 + LOGO_SIZE
-#define FONT_NUM_START 1 + LOGO_SIZE
-#define FONT_BLANK LOGO_SIZE

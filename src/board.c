@@ -4,18 +4,13 @@ UINT8 row = 0;
 UINT8 col = 0;
 UINT8 total_alive = 0;
 
-Board current_board;
-Board next_board;
-
-Board *pboard = &current_board;
-Board *pnext = &next_board;
 
 /**
  * @brief Generate random board state
  * 
  */
 void setup_board(Board board){
-    print_text(WIN_RIGHT, WIN_BOTTOM, "STAT GEN");
+    print_text(WIN_RIGHT, WIN_BOTTOM, "STAT GEN", WIN,0);
     for(row = 0;row<BOARD_HEIGHT;row++){
         for(col=0;col<BOARD_WIDTH;col++){
             board[row][col] = rand_num(0,1);
@@ -35,8 +30,8 @@ void display_board(Board board){
             set_tile_xy(col + BOARD_X_OFFSET, row + BOARD_Y_OFFSET, board[row][col]);
         }
     }
-    print_number(WIN_LEFT,WIN_TOP,total_alive, "ALIVE ");
-    print_text(WIN_RIGHT, WIN_BOTTOM, "STAT DONE");
+    print_number(WIN_LEFT,WIN_TOP,total_alive, "ALIVE ", WIN);
+    print_text(WIN_RIGHT, WIN_BOTTOM, "STAT DONE", WIN,0);
 }
 
 
@@ -49,7 +44,7 @@ void display_board(Board board){
 void update_board(Board board, Board next){
     UINT8 alive = 0;
     total_alive = 0;
-    print_text(WIN_RIGHT, WIN_BOTTOM, "STAT CALC");
+    print_text(WIN_RIGHT, WIN_BOTTOM, "STAT CALC", WIN,0);
     for(row = 0;row < BOARD_HEIGHT;row++){
         for(col=0;col < BOARD_WIDTH;col++){
             alive = alive_neighbours(*pboard, row,col);
