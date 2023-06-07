@@ -13,12 +13,16 @@ For curious its built with GBDK 2020 and heres the [GBDK 2020 C Guidelines](http
 
 Since the Game Boy has a limit on how many sprites can be displayed on a line, the entire simulation works by moving background tiles around similar to how tetris works.
 
+
 ## :postbox: Contact & Support
 
-Created by [Wyatt Ferguson](@wyattxdev@mastodon.social)
+Created by [Wyatt Ferguson](https://twitter.com/wyattxdev)
 
-For any comments or questions message me on [Mastodon](@wyattxdev@mastodon.social)
+For any questions or comments you can send them to me on my socials:
+### :shaved_ice: Follow on [Mastodon @wyattxdev@mastodon.social](@wyattxdev@mastodon.social)
+### :tropical_drink: Follow on [Twitter @wyattxdev](https://twitter.com/wyattxdev)
 
-[:coffee: Buy Me A Coffee](https://www.buymeacoffee.com/wyattferguson)
 
+If you find this useful and want to tip me a little coffee money:
+### :coffee: [Buy Me A Coffee](https://www.buymeacoffee.com/wyattferguson)
 <br>
