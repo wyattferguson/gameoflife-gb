@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "config.h"
-#include "utils.h"
 #include "screens.h"
+#include "utils.h"
 
 typedef UINT8 Board[BOARD_HEIGHT][BOARD_WIDTH];
 

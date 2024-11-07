@@ -30,4 +30,3 @@
 #define LOGO_SIZE 64
 #define LOGO_HEIGHT 10
 #define LOGO_WIDTH 20
-
