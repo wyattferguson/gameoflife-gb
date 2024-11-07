@@ -60,6 +60,6 @@ const unsigned char font_tiles[] = {
 #define FONT_BLANK (0 + FONT_MEMORY_START)
 
 void setup_font(void);
-void print_text(UINT8 print_x, UINT8 print_y, const char *string, UBYTE surface, UINT8 text_delay);
-void print_number(UINT8 x, UINT8 y, INT8 value, const char *string, UBYTE surface);
-void clear_text(UINT8 x, UINT8 y, UINT8 w, UBYTE surface);
+void print_text(uint8_t print_x, uint8_t print_y, const char *string, UBYTE surface, uint8_t text_delay);
+void print_number(uint8_t x, uint8_t y, uint8_t value, const char *string, UBYTE surface);
+void clear_text(uint8_t x, uint8_t y, uint8_t w, UBYTE surface);

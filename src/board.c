@@ -1,8 +1,8 @@
 #include "board.h"
 
-UINT8 row = 0;
-UINT8 col = 0;
-UINT8 total_alive = 0;
+uint8_t row = 0;
+uint8_t col = 0;
+uint8_t total_alive = 0;
 
 /**
  * @brief Generate random board state
@@ -39,7 +39,7 @@ void display_board(Board board) {
  *
  */
 void update_board(Board board, Board next) {
-    UINT8 alive = 0;
+    uint8_t alive = 0;
     total_alive = 0;
     print_text(WIN_RIGHT, WIN_BOTTOM, "STAT CALC", WIN, 0);
     for(row = 0; row < BOARD_HEIGHT; row++) {
@@ -66,7 +66,7 @@ void update_board(Board board, Board next) {
  * @brief Copy next board into current board
  *
  */
-void copy_boards() {
+void copy_boards(void) {
     Board *temp = pboard;
     pboard = pnext;
     pnext = temp;
@@ -75,14 +75,14 @@ void copy_boards() {
 /**
  * @brief Count number of alive cells surround a given row/col cell
  *
- * @return UINT8 - Alive Cell Count
+ * @return uint8_t - Alive Cell Count
  */
-UINT8 alive_neighbours(Board board, UINT8 i, UINT8 j) {
-    UINT8 alive = 0;
-    const UINT8 down = i - 1;
-    const UINT8 right = j + 1;
-    const UINT8 left = j - 1;
-    const UINT8 up = i + 1;
+uint8_t alive_neighbours(Board board, uint8_t i, uint8_t j) {
+    uint8_t alive = 0;
+    const uint8_t down = i - 1;
+    const uint8_t right = j + 1;
+    const uint8_t left = j - 1;
+    const uint8_t up = i + 1;
 
     // Check row below cell
     if(i > 0) {

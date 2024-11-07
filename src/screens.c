@@ -4,7 +4,7 @@
  * @brief Display main title screen
  *
  */
-void show_title_screen() {
+void show_title_screen(void) {
     state = TITLE;
     clear_screen();
     set_bkg_data(0, 64, logo_data);
@@ -20,7 +20,7 @@ void show_title_screen() {
  * @brief Display gameover screen
  *
  */
-void show_tutorial() {
+void show_tutorial(void) {
     state = TUTORIAL;
     clear_screen();
     move_win(WIN_X, TUT_WIN_Y);
@@ -36,7 +36,7 @@ void show_tutorial() {
  * @brief Display main gameplay screen
  *
  */
-void show_play_screen() {
+void show_play_screen(void) {
     clear_screen();
     set_bkg_data(0, BLOCK_TILES, block_tiles);
     state = PLAYING;
@@ -52,11 +52,11 @@ void show_play_screen() {
  * @brief Clear screen and window
  *
  */
-void clear_screen() {
+void clear_screen(void) {
     wait_vbl_done();
     DISPLAY_OFF;
 
-    for(UINT8 line = 0; line < GRID_HEIGHT + 1; line++) {
+    for(uint8_t line = 0; line < GRID_HEIGHT + 1; line++) {
         set_bkg_tiles(0, line, 120, 1, 0);
         set_win_tiles(0, line, 120, 1, 0);
     }

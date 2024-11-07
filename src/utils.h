@@ -4,4 +4,4 @@
 #include <rand.h>
 #include "config.h"
 
-UINT8 rand_num(UINT8 low, UINT8 high);
+uint8_t rand_num(uint8_t low, uint8_t high);

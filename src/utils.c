@@ -7,4 +7,4 @@
  * @param high max 8 bit value
  * @return UINT8
  */
-UINT8 rand_num(UINT8 low, UINT8 high) { return low + rand() % (high + 1 - low); }
+uint8_t rand_num(uint8_t low, uint8_t high) { return low + rand() % (high + 1 - low); }

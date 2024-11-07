@@ -11,7 +11,7 @@
  * @brief Init sound, display, and enable bg/sprites/window
  *
  */
-void setup() {
+void setup(void) {
     SHOW_BKG;
     SHOW_WIN;
     DISPLAY_ON;
@@ -23,8 +23,8 @@ void setup() {
  * @brief Main game loop
  *
  */
-void main() {
-    UINT8 button_pressed = 0;
+void main(void) {
+    uint8_t button_pressed = 0;
     UBYTE auto_play = 0;
 
     setup();
