@@ -80,35 +80,42 @@ void copy_boards() {
  */
 UINT8 alive_neighbours(Board board, UINT8 i, UINT8 j) {
     UINT8 alive = 0;
-    if (i - 1 >= 0) {
-        if (board[i - 1][j] >= 1) alive++;
+    const UINT8 down = i - 1;
+    const UINT8 right = j + 1;
+    const UINT8 left = j - 1;
+    const UINT8 up = i + 1;
 
-        if (j - 1 >= 0) {
-            if (board[i - 1][j - 1] >= 1) alive++;
+    // Check row below cell
+    if (i > 0) {
+        alive += board[down][j];
+
+        if (j > 0) {
+            alive += board[down][left];
         }
 
-        if (j + 1 < BOARD_WIDTH) {
-            if (board[i - 1][j + 1] >= 1) alive++;
+        if (right < BOARD_WIDTH) {
+            alive += board[down][right];
         }
     }
 
-    if (j - 1 >= 0) {
-        if (board[i][j - 1] >= 1) alive++;
+    if (j > 0) {
+        alive += board[i][left];
     }
 
-    if (j + 1 < BOARD_WIDTH) {
-        if (board[i][j + 1] >= 1) alive++;
+    if (right < BOARD_WIDTH) {
+        alive += board[i][right];
     }
 
-    if (i + 1 < BOARD_HEIGHT) {
-        if (board[i + 1][j] >= 1) alive++;
+    // Check row above cell
+    if (up < BOARD_HEIGHT) {
+        alive += board[up][j];
 
-        if (j - 1 >= 0) {
-            if (board[i + 1][j - 1] >= 1) alive++;
+        if (j > 0) {
+            alive += board[up][left];
         }
 
-        if (j + 1 < BOARD_WIDTH) {
-            if (board[i + 1][j + 1] >= 1) alive++;
+        if (right < BOARD_WIDTH) {
+            alive += board[up][right];
         }
     }
 
