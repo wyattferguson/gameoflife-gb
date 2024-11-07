@@ -16,22 +16,21 @@ void setup_font() { set_bkg_data(FONT_MEMORY_START, FONT_SIZE, font_tiles); }
  * @param surface 0 = win / 1 = bkg
  * @param text_delay time between printing each char
  */
-void print_text(UINT8 print_x, UINT8 print_y, const char *string, UBYTE surface,
-                UINT8 text_delay) {
+void print_text(UINT8 print_x, UINT8 print_y, const char *string, UBYTE surface, UINT8 text_delay) {
     unsigned char c;
 
-    while (*string) {
-        if (*string >= 'A' && *string <= 'Z') {
+    while(*string) {
+        if(*string >= 'A' && *string <= 'Z') {
             c = FONT_CHAR_START + (unsigned char)(*string - 'A');
-        } else if (*string >= '0' && *string <= '9') {
+        } else if(*string >= '0' && *string <= '9') {
             c = FONT_NUM_START + (unsigned char)(*string - '0');
-        } else if (*string == '>') {
+        } else if(*string == '>') {
             c = FONT_EXTRA + 1U;
         } else {
             c = FONT_BLANK;
         }
 
-        if (surface) {
+        if(surface) {
             set_bkg_tiles(print_x, print_y, 1, 1, &c);
         } else {
             set_win_tiles(print_x, print_y, 1, 1, &c);
@@ -40,7 +39,7 @@ void print_text(UINT8 print_x, UINT8 print_y, const char *string, UBYTE surface,
         print_x++;
         string++;
 
-        if (text_delay) {
+        if(text_delay) {
             delay(text_delay);
         }
     }
@@ -55,8 +54,7 @@ void print_text(UINT8 print_x, UINT8 print_y, const char *string, UBYTE surface,
  * @param string string to prepend the value
  * @param surface WIN / BKG
  */
-void print_number(UINT8 x, UINT8 y, INT8 value, const char *string,
-                  UBYTE surface) {
+void print_number(UINT8 x, UINT8 y, INT8 value, const char *string, UBYTE surface) {
     unsigned char value_text[16];
     unsigned char char_buffer[16];
     strcpy(value_text, string);
@@ -74,7 +72,7 @@ void print_number(UINT8 x, UINT8 y, INT8 value, const char *string,
  * @param surface WIN / BKG
  */
 void clear_text(UINT8 x, UINT8 y, UINT8 w, UBYTE surface) {
-    if (surface) {
+    if(surface) {
         set_bkg_tiles(x, y, w, 1,
                       &font_tiles[FONT_BLANK]);  // clear entire bkg row
     } else {

@@ -29,26 +29,26 @@ void main() {
 
     setup();
 
-    while (1) {
+    while(1) {
         button_pressed = joypad();
-        switch (state) {
+        switch(state) {
             case TITLE:
-                if (button_pressed & J_START) {
+                if(button_pressed & J_START) {
                     show_tutorial();
                 }
                 break;
 
             case TUTORIAL:
-                if (button_pressed & J_START) {
+                if(button_pressed & J_START) {
                     show_play_screen();
                 }
                 break;
 
             case PLAYING:
                 // Change play mode from step to auto
-                if (button_pressed & J_SELECT) {
+                if(button_pressed & J_SELECT) {
                     auto_play = !auto_play;
-                    if (auto_play) {
+                    if(auto_play) {
                         print_text(WIN_RIGHT, WIN_TOP, "MODE AUTO", WIN, 0);
                     } else {
                         print_text(WIN_RIGHT, WIN_TOP, "MODE STEP", WIN, 0);
@@ -58,13 +58,13 @@ void main() {
                 }
 
                 // Run next step in board
-                if ((button_pressed & J_UP) || auto_play) {
+                if((button_pressed & J_UP) || auto_play) {
                     update_board(*pboard, *pnext);
                     steps++;
                     print_number(WIN_LEFT, WIN_BOTTOM, steps, "GEN ", WIN);
                 }
                 // Reset board
-                else if (button_pressed & J_DOWN) {
+                else if(button_pressed & J_DOWN) {
                     print_text(WIN_RIGHT, WIN_BOTTOM, "STAT RESET", WIN, 0);
                     show_play_screen();
                 }
