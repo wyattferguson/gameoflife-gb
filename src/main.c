@@ -1,11 +1,11 @@
 
 #include <gb/gb.h>
 #include <stdlib.h>
-#include "board.c"
+#include "board.h"
 #include "config.h"
-#include "font.c"
-#include "screens.c"
-#include "utils.c"
+#include "font.h"
+#include "screens.h"
+#include "utils.h"
 
 /**
  * @brief Init sound, display, and enable bg/sprites/window
@@ -62,7 +62,12 @@ void main(void) {
                     update_board(*pboard, *pnext);
                     steps++;
                     print_number(WIN_LEFT, WIN_BOTTOM, steps, "GEN ", WIN);
+                    if(total_alive == 0 || board_frozen) {
+                        auto_play = 0;
+                        print_text(WIN_RIGHT, WIN_TOP, "MODE STEP", WIN, 0);
+                    }
                 }
+
                 // Reset board
                 else if(button_pressed & J_DOWN) {
                     print_text(WIN_RIGHT, WIN_BOTTOM, "STAT RESET", WIN, 0);

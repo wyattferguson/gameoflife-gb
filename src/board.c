@@ -1,8 +1,19 @@
 #include "board.h"
 
+Board current_board;
+Board next_board;
+
+Board *pboard = &current_board;
+Board *pnext = &next_board;
+
+uint16_t steps = 0;
+
+uint8_t total_alive = 0;
+
+uint8_t board_frozen = 0;
+
 uint8_t row = 0;
 uint8_t col = 0;
-uint8_t total_alive = 0;
 
 /**
  * @brief Generate random board state
@@ -58,6 +69,17 @@ void update_board(Board board, Board next) {
         }
     }
 
+    board_frozen = 1;
+    for(row = 0; row < BOARD_HEIGHT; row++) {
+        for(col = 0; col < BOARD_WIDTH; col++) {
+            if(next[row][col] != board[row][col]) {
+                board_frozen = 0;
+                break;
+            }
+        }
+        if(!board_frozen) break;
+    }
+
     copy_boards();
     display_board(*pboard);
 }
@@ -79,21 +101,21 @@ void copy_boards(void) {
  */
 uint8_t alive_neighbours(Board board, uint8_t i, uint8_t j) {
     uint8_t alive = 0;
-    const uint8_t down = i - 1;
+    const uint8_t above = i - 1;
+    const uint8_t below = i + 1;
     const uint8_t right = j + 1;
     const uint8_t left = j - 1;
-    const uint8_t up = i + 1;
 
-    // Check row below cell
+    // Check row above cell
     if(i > 0) {
-        alive += board[down][j];
+        alive += board[above][j];
 
         if(j > 0) {
-            alive += board[down][left];
+            alive += board[above][left];
         }
 
         if(right < BOARD_WIDTH) {
-            alive += board[down][right];
+            alive += board[above][right];
         }
     }
 
@@ -105,16 +127,16 @@ uint8_t alive_neighbours(Board board, uint8_t i, uint8_t j) {
         alive += board[i][right];
     }
 
-    // Check row above cell
-    if(up < BOARD_HEIGHT) {
-        alive += board[up][j];
+    // Check row below cell
+    if(below < BOARD_HEIGHT) {
+        alive += board[below][j];
 
         if(j > 0) {
-            alive += board[up][left];
+            alive += board[below][left];
         }
 
         if(right < BOARD_WIDTH) {
-            alive += board[up][right];
+            alive += board[below][right];
         }
     }
 

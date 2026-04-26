@@ -8,13 +8,17 @@
 
 typedef uint8_t Board[BOARD_HEIGHT][BOARD_WIDTH];
 
-Board current_board;
-Board next_board;
+extern Board current_board;
+extern Board next_board;
 
-Board *pboard = &current_board;
-Board *pnext = &next_board;
+extern Board *pboard;
+extern Board *pnext;
 
-uint16_t steps = 0;
+extern uint16_t steps;
+
+extern uint8_t total_alive;
+
+extern uint8_t board_frozen;
 
 void setup_board(Board grid);
 void update_board(Board board, Board next);

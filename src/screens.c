@@ -1,4 +1,9 @@
 #include "screens.h"
+#include "sprites/block-tiles.c"
+#include "sprites/logo_data.c"
+#include "sprites/logo_map.c"
+
+enum game_states state = TITLE;
 
 /**
  * @brief Display main title screen
