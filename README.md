@@ -10,10 +10,11 @@ This is a working version of Conway's Game of Life for the classic Game Boy. Sim
 
 ## References
 
-- [GBDK 2020](https://gbdk.org/docs/api/index.html)
-- [GBDev.io](https://gbdev.io/resources.html#introduction)
-- [TileMap Studio](https://github.com/Rangi42/tilemap-studio)
-
+- [GBDK Tool Chain](https://github.com/gbdk-2020/gbdk-2020/) - An updated version of GBDK, C compiler, assembler, linker and set of libraries.
+- [GBDK 2020 Docs](https://gbdk.org/docs/api/index.html) - GBDK-2020 Documentation.
+- [GBDev.io](https://gbdev.io/resources.html#introduction) - A curated list of awesome Game Boy Development resources, tools, and docs.
+- [TileMap Studio](https://github.com/Rangi42/tilemap-studio) - A tilemap editor for Game Boy, Color, Advance, DS, and SNES projects.
+- [Conway's Game of Life](https://conwaylife.com/)
 
 ## License
 
