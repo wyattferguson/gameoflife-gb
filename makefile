@@ -16,8 +16,8 @@ $(BUILD_DIR)/%.o: src/%.c
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -o $@ $<
 
-all: $(BUILD_DIR)/$(PROJECTNAME).gb
+all: $(PROJECTNAME).gb
 
-$(BUILD_DIR)/$(PROJECTNAME).gb: $(OBJ)
+$(PROJECTNAME).gb: $(OBJ)
 
 	$(CC) $(LDFLAGS) -o $@ $(OBJ)
