@@ -2,9 +2,9 @@ PROJECTNAME = gameoflife
 
 CC = lcc
 
-CFLAGS = -Wa-l -Wl-m -Wl-j -DUSE_SFR_FOR_REG -Wf--debug -c
+CFLAGS = -Wa-l -Wl-m -debug -DUSE_SFR_FOR_REG -c
 
-LDFLAGS = -Wa-l -Wl-m -Wl-j -DUSE_SFR_FOR_REG -Wf--debug
+LDFLAGS = -debug -Wa-l -Wl-m -DUSE_SFR_FOR_REG -Z -Wm-yoA -Wm-yn"GameOfLife"
 
 SRC = src/main.c src/board.c src/font.c src/screens.c src/utils.c
 
@@ -13,11 +13,11 @@ OBJ = $(patsubst src/%.c, $(BUILD_DIR)/%.o, $(SRC))
 BUILD_DIR = build
 
 $(BUILD_DIR)/%.o: src/%.c
-
+	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -o $@ $<
 
 all: $(BUILD_DIR)/$(PROJECTNAME).gb
 
-$(PROJECTNAME).gb: $(OBJ)
+$(BUILD_DIR)/$(PROJECTNAME).gb: $(OBJ)
 
 	$(CC) $(LDFLAGS) -o $@ $(OBJ)

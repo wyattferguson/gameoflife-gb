@@ -9,3 +9,4 @@
 *.cdb
 *.adb
 .vscode
+build/
