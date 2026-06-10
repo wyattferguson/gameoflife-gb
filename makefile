@@ -2,22 +2,34 @@ PROJECTNAME = gameoflife
 
 CC = lcc
 
-CFLAGS = -Wa-l -Wl-m -debug -DUSE_SFR_FOR_REG -c
+CFLAGS = -Wa-l -Wl-m -DUSE_SFR_FOR_REG -debug -c
 
-LDFLAGS = -debug -Wa-l -Wl-m -DUSE_SFR_FOR_REG -Z -Wm-yoA -Wm-yn"GameOfLife"
-
-SRC = src/main.c src/board.c src/font.c src/screens.c src/utils.c
-
-OBJ = $(patsubst src/%.c, $(BUILD_DIR)/%.o, $(SRC))
+LDFLAGS = -Wa-l -Wl-m -debug -Z -Wm-yoA -Wm-yn"$(PROJECTNAME)"
 
 BUILD_DIR = build
 
+# Auto-discover all .c files under src/ (recursive)
+SRC = $(shell find src -name '*.c')
+
+# Map src/%.c -> build/%.o
+OBJ = $(patsubst src/%.c, $(BUILD_DIR)/%.o, $(SRC))
+
+all: $(BUILD_DIR)/$(PROJECTNAME).gb
+
+# Pattern rule: compile any src/%.c to build/%.o, creating subdirs as needed
 $(BUILD_DIR)/%.o: src/%.c
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) -o $@ $<
 
-all: $(PROJECTNAME).gb
-
-$(PROJECTNAME).gb: $(OBJ)
-
+# Link all .o files into .gb rom
+$(BUILD_DIR)/$(PROJECTNAME).gb: $(OBJ)
 	$(CC) $(LDFLAGS) -o $@ $(OBJ)
+
+.PHONY: clean
+clean:
+	rm -rf $(BUILD_DIR) *.gb *.ihx *.map *.noi *.cdb *.adb
+
+# Show what files were found
+sources:
+	@echo "Source files:"
+	@echo $(SRC)

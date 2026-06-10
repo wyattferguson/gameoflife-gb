@@ -33,6 +33,7 @@ void main(void) {
         button_pressed = joypad();
         switch(state) {
             case TITLE:
+                seed_rand();
                 if(button_pressed & J_START) {
                     show_tutorial();
                 }
